@@ -21,6 +21,8 @@ export default class QuestaoModel {
     get respostas() { return this.#respostas }
 
     get acertou() { return this.#acertou }
+
+    get naoRespondida() { return !this.respondida }
     
     get respondida() { 
         for(let resposta of this.#respostas) {
