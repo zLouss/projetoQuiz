@@ -13,6 +13,11 @@ export default class QuestaoModel {
         this.#respostas = respostas
         this.#acertou = acertou
     }
+
+    static criarInstanciaPeloJson(obj: QuestaoModel): QuestaoModel {
+        const respostas = obj.respostas.map(resp => RespostaModel.criarInstanciaPeloJson(resp))
+        return new QuestaoModel(obj.id, obj.enunciado, respostas, obj.acertou)
+    }
     
     get id() { return this.#id }
 

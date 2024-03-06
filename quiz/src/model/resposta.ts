@@ -17,6 +17,10 @@ export default class RespostaModel {
         return new RespostaModel(valor, false)
     }
 
+    static criarInstanciaPeloJson(obj: RespostaModel): RespostaModel {
+        return new RespostaModel(obj.valor, obj.certa, obj.revelada)
+    }
+    
     get valor() {
         return this.#valor
     }
