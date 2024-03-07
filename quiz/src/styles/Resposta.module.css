@@ -4,6 +4,7 @@
     width: 80%;
     height: 100px;
     margin: 10px;
+    perspective: 1000px;
 }
 
 .letra {
@@ -24,18 +25,25 @@
     font-weight: 700;
 }
 
-.frente, .verso {
-    position: absolute;
-    display: flex;
-    height: 100%;
-    width: 100%;
-}
 .frente {
     align-items: center;
     border-radius: 12px;
     padding: 15px;
     color: #000;
     background-color: #fff;
+}
+
+.frente, .verso {
+    position: absolute;
+    display: flex;
+    height: 100%;
+    width: 100%;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+}
+
+.verso {
+    transform: rotateY(180deg);
 }
 
 .verso > div {
@@ -47,6 +55,7 @@
     border-radius: 12px;
 }
 
+
 .certa {
     background-color: #2BAA6D;
 }
@@ -54,6 +63,7 @@
 .errada {
     background-color: #E44A4C;
 }
+
 .certa .valor, .errada .valor {
     font-size: 1.5rem;
 }
@@ -62,4 +72,10 @@
     position: relative;
     display: flex;
     flex: 1;
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+}
+
+.respostaRevelada.conteudoResposta {
+    transform: rotateY(180deg);
 }

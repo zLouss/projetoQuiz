@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next"
 import questoes from "../bancoDeQuestoes"
 
-export default (req: NextApiRequest, res: NextApiResponse) => {
+export default function questoesPorId (req: NextApiRequest, res: NextApiResponse) {
     const idSelecionado = Number(req.query.id)
     const unicaQuestaoOuNada = questoes.filter(questao => questao.id === idSelecionado)
     if(unicaQuestaoOuNada.length === 1) {
